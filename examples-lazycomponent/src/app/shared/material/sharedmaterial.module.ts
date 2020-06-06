@@ -1,26 +1,37 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MatMenuModule, MatSidenavModule } from '@angular/material';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatMenuModule, MatSidenavModule, MatToolbarModule, MatIconModule, MatButtonModule, MatTreeModule, MatCardModule, MatAutocompleteModule, MatFormField, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
   declarations: [],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
     FlexLayoutModule,
     MatMenuModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTreeModule,
+    MatCardModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   exports: [
-    BrowserModule,
-    BrowserAnimationsModule,
+
     FlexLayoutModule,
     MatMenuModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTreeModule,
+    MatCardModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule
+
   ]
 })
 export class SharedMaterialModule { }
