@@ -5,31 +5,26 @@ import { MatTreeNestedDataSource } from '@angular/material';
 
 interface FoodNode {
   name: string;
+  routerLink?: any[];
   children?: FoodNode[];
 }
 
 const TREE_DATA: FoodNode[] = [
   {
-    name: 'Fruit',
-    children: [
-      {name: 'Apple'},
-      {name: 'Banana'},
-      {name: 'Fruit loops'},
-    ]
+    name: 'Dashboard', routerLink: ['/404']
   }, {
-    name: 'Vegetables',
+    name: 'Admin',
     children: [
       {
-        name: 'Green',
+        name: 'Users',
         children: [
-          {name: 'Broccoli'},
-          {name: 'Brussels sprouts'},
+          {name: 'Add', routerLink: ['/404']},
+          {name: 'Role Management', routerLink: ['/404']},
         ]
       }, {
-        name: 'Orange',
+        name: 'Settings',
         children: [
-          {name: 'Pumpkins'},
-          {name: 'Carrots'},
+          {name: 'System Configuration', routerLink: ['/404']},
         ]
       },
     ]
@@ -39,7 +34,7 @@ const TREE_DATA: FoodNode[] = [
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'examples-lazycomponent';
