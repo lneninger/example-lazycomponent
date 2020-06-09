@@ -27,8 +27,7 @@ export class LazyLoaderService {
     @Inject(LAZY_WIDGETS) private lazyWidgets: LazyRoute[]
   ) { }
 
-  async load(name: string, groupType: Type<any>, markupId?: string, data?: any): Promise<any> {
-    // debugger;
+  getContainer(name: string, groupType: Type<any>, markupId?: string) {
     const group = this.lazyLoaderGroups[groupType.name];
     let container: LazyLoaderDirective;
     if (group) {
@@ -39,9 +38,15 @@ export class LazyLoaderService {
       if (container == null) {
         container = group.find(_ => !_.appLazy);
       }
-    } else {
-      return;
     }
+
+    return container;
+  }
+
+  async load(name: string, groupType: Type<any>, markupId?: string, data?: any): Promise<any> {
+    // debugger;
+
+    const container = this.getContainer(name, groupType, markupId);
 
     if (container && container.viewContainerRef.length === 0) {
       const promise = this.lazyWidgets.find(lazyTarget => lazyTarget.path === name);
@@ -75,8 +80,16 @@ export class LazyLoaderService {
         const componentRef = container.viewContainerRef.createComponent(compFactory);
 
         // debugger;
-        this.activatedMarkup$.next({name: container.appLazy, status: LazyLoaderStatus.activated} as LazyLoaderChangedEvent)
+        this.activatedMarkup$.next({ name: container.appLazy, status: LazyLoaderStatus.activated } as LazyLoaderChangedEvent)
       }
+    }
+  }
+
+  unload(name: string, groupType: Type<any>, markupId?: string) {
+    const container = this.getContainer(name, groupType, markupId);
+    if (container && container.viewContainerRef.length > 0) {
+      container.viewContainerRef.remove(0);
+      this.activatedMarkup$.next({ name: container.appLazy, status: LazyLoaderStatus.deactivated } as LazyLoaderChangedEvent)
     }
   }
 

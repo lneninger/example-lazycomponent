@@ -1,7 +1,10 @@
+import { DashboardComponent } from './../../dashboard.component';
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
+import { LazyLoaderService } from 'src/app/shared/utils/lazy-loader/lazy-loader-service';
+import { LazyLoadedWidgets } from 'src/app/app-routing-lazy.ts';
 
 
 @Component({
@@ -21,6 +24,10 @@ export class StatisticsComponent implements OnInit {
   options: string[] = ['One', 'Two', 'Three'];
   filteredOptions: Observable<string[]>;
 
+  constructor(private lazyLoaderService: LazyLoaderService){
+
+  }
+
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
@@ -32,6 +39,13 @@ export class StatisticsComponent implements OnInit {
     const filterValue = value.toLowerCase();
 
     return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+  }
+
+
+  close() {
+    console.log('Confirm button pressed');
+    // alert('Confirm button pressed');
+    this.lazyLoaderService.unload(LazyLoadedWidgets.DASHBOARD_STATISTICS, DashboardComponent);
   }
 
 }

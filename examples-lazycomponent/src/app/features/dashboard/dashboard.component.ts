@@ -29,4 +29,11 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     // alert('Confirm button pressed');
     this.lazyLoaderService.load(LazyLoadedWidgets.DASHBOARD_STATISTICS, DashboardComponent);
   }
+
+
+  close() {
+    console.log('Confirm button pressed');
+    // alert('Confirm button pressed');
+    this.lazyLoaderService.unload(LazyLoadedWidgets.DASHBOARD_STATISTICS, DashboardComponent);
+  }
 }

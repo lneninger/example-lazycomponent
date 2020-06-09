@@ -1,11 +1,27 @@
-<form class="example-form">
-  <mat-form-field fxFlex>
-    <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl"
-      [matAutocomplete]="auto">
-    <mat-autocomplete autoActiveFirstOption  #auto="matAutocomplete">
-      <mat-option *ngFor="let option of options" [value]="option">
-        {{ option }}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
-</form>
+<section fxFlex fxLayout="column" fxLayoutAlign="space-between stretch">
+
+
+  <form fxFlex="1 1 100%" class="example-form">
+    <mat-form-field fxFlex>
+      <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl"
+        [matAutocomplete]="auto">
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option *ngFor="let option of options" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+
+
+  <section fxFlex>
+    <mat-toolbar>
+      <mat-toolbar-row fxLayoutAlign="end center">
+        <button mat-icon-button (click)="close()">
+          <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">verified_user</mat-icon>
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </section>
+
+</section>
