@@ -1,5 +1,5 @@
 import { LazyLoaderInjector } from './lazy-loader-injector';
-import { Compiler, Injector, NgModuleFactory, Type, ViewContainerRef, Inject, Injectable, QueryList, EventEmitter } from '@angular/core';
+import { Compiler, Injector, NgModuleFactory, Type, Inject, Injectable, QueryList, EventEmitter } from '@angular/core';
 
 import { InjectionToken } from '@angular/core';
 import { LazyLoaderDirective } from './lazy-loader.directive';
