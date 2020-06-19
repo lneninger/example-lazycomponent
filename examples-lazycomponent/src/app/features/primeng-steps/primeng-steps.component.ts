@@ -10,7 +10,7 @@ export class PrimengStepsComponent implements OnInit {
 
   items: MenuItem[] = [
     { label: 'Step 1', styleClass: 'icon check' },
-    { label: 'Step 2' },
+    { label: 'Step 2' , styleClass: 'icon eraser' },
     { label: 'Step 3' }
   ];
 
