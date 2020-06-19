@@ -12,6 +12,9 @@ interface FoodNode {
 const TREE_DATA: FoodNode[] = [
   {
     name: 'Dashboard', routerLink: ['/404']
+  },
+  {
+    name: 'Steps', routerLink: ['/primeng-steps-styling']
   }, {
     name: 'Admin',
     children: [

@@ -19,7 +19,13 @@ import { SharedModule } from './shared/shared.module';
         path: '',
         loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule),
         pathMatch: 'full'
+      },
+      {
+        path: 'primeng-steps-styling',
+        loadChildren: () => import('./features/primeng-steps/primeng-steps.module').then(m => m.PrimengStepsModule),
+        pathMatch: 'full'
       }
+
     ]),
     SharedModule
   ],

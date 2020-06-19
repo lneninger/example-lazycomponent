@@ -1,12 +1,19 @@
 import { NgModule } from '@angular/core';
-import { MatMenuModule, MatSidenavModule, MatToolbarModule, MatIconModule, MatButtonModule, MatTreeModule, MatCardModule, MatAutocompleteModule, MatFormField, MatFormFieldModule, MatInputModule } from '@angular/material';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatMenuModule
+  , MatSidenavModule
+  , MatToolbarModule
+  , MatIconModule
+  , MatButtonModule
+  , MatTreeModule
+  , MatCardModule
+  , MatAutocompleteModule
+  , MatFormFieldModule
+  , MatInputModule } from '@angular/material';
 
 
 @NgModule({
   declarations: [],
   imports: [
-    FlexLayoutModule,
     MatMenuModule,
     MatSidenavModule,
     MatToolbarModule,
@@ -20,7 +27,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   ],
   exports: [
 
-    FlexLayoutModule,
     MatMenuModule,
     MatSidenavModule,
     MatToolbarModule,

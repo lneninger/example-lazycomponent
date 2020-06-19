@@ -1,0 +1,41 @@
+:host ::ng-deep * {
+  & ul[role="tablist"] {
+    display: flex;
+    flex: 100%;
+    justify-content: space-between;
+
+    & li {
+      &.icon {
+        & .ui-steps-number {
+          text-indent: -99px;
+          padding: 0.85em 0.85em;
+          &:before {
+            font-family: "Font Awesome 5 Free";
+            display: inline-block;
+            position: absolute;
+            vertical-align: middle;
+            font-weight: 900;
+            text-indent: 0;
+            left: 5px;
+            top: 2px;
+          }
+        }
+        &.eraser {
+          & .ui-steps-number {
+            &:before {
+              content: "\f00c";
+            }
+          }
+        }
+
+        &.check {
+          & .ui-steps-number {
+            &:before {
+              content: "\f188";
+            }
+          }
+        }
+      }
+    }
+  }
+}
